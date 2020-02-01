@@ -10,13 +10,30 @@
           <e p="Camera" t="Include">
             <e p="PostprocessingWorldCapture.cs" t="Include" />
             <e p="PostprocessingWorldSwitch.cs" t="Include" />
+            <e p="WorldsSwitchMask.cs" t="Include" />
+            <e p="WorldSwitchCamera.cs" t="Include" />
           </e>
           <e p="CameraBehaviour.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerHandling.cs" t="Include" />
+          <e p="TextureRenderCamera.cs" t="Include" />
+          <e p="WorldSwitchHideTrigger.cs" t="Include" />
+          <e p="WorldSwitchRenderer.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
-          <e p="WorldSwitch.shader" t="Include" />
+          <e p="StandardSwitchable.shader" t="Include" />
+          <e p="WorldSwitch" t="Include">
+            <e p="Includes" t="Include">
+              <e p="Shadows.cginc" t="Include" />
+              <e p="WorldSwitchLighting.cginc" t="Include" />
+            </e>
+            <e p="Shadows.shader" t="Include" />
+          </e>
+          <e p="WorldSwitchPostprocessing" t="Include">
+            <e p="WorldSwitch.shader" t="Include" />
+            <e p="WorldSwitch2.shader" t="Include" />
+            <e p="WorldSwitchMask.shader" t="Include" />
+          </e>
         </e>
         <e p="StateMachineSystem" t="Include">
           <e p="ConditionalTransition.cs" t="Include" />
