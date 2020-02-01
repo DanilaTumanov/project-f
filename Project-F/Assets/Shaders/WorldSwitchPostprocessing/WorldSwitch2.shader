@@ -1,4 +1,4 @@
-﻿Shader "Unlit/WorldSwitch"
+﻿Shader "Unlit/WorldSwitch2"
 {
     Properties
     {
@@ -6,6 +6,10 @@
         [HideInInspector] _SecondWorld ("Second world", 2D) = "white" {}
         
         [HideInInspector] _SecondWorldDepth ("Second world depth", 2D) = "black" {}
+        
+        _FirstWorldMask ("First world mask", 2D) = "white"
+        _SecondWorldMask ("Second world mask", 2D) = "white"
+        
         
         _OriginViewPos ("Origin view pos", Vector) = (0,0,0,0)
         
@@ -53,6 +57,8 @@
             fixed _Radius;
             float4 _OriginViewPos;
             
+            sampler2D _FirstWorldMask;
+            sampler2D _SecondWorldMask;
             
             
             // DEBUG
@@ -85,19 +91,23 @@
 
                 fixed4 firstWorld = tex2D(_MainTex, i.uv);
                 fixed4 secondWorld = tex2D(_SecondWorld, i.uv);
+                
+                fixed4 firstWorldMask = tex2D(_FirstWorldMask, i.uv);
+                fixed4 secondWorldMask = tex2D(_SecondWorldMask, i.uv);
 
                 fixed firstIsFirst = length(worldSpacePoint1.xz) >= _Radius;
                 fixed secondIsSecond = length(worldSpacePoint2.xz) < _Radius;
                 
                 fixed4 col;
                 
-                col = firstIsClosest && firstIsFirst 
-                    ? firstWorld
-                    : !firstIsClosest && secondIsSecond 
-                        ? secondWorld 
-                        : firstIsClosest && !firstIsFirst
-                            ? secondWorld
-                            : firstWorld;
+                
+//                col = firstIsClosest && firstIsFirst 
+//                    ? firstWorld
+//                    : !firstIsClosest && secondIsSecond 
+//                        ? secondWorld 
+//                        : firstIsClosest && !firstIsFirst
+//                            ? secondWorld
+//                            : firstWorld;
                 
                 
                 //col = isFirstWorld /*&& (depthUnits1 >= depthUnits2)*/ ? firstWorld : secondWorld;
