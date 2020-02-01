@@ -92,7 +92,6 @@
               <e p="Shadows.cginc" t="Include" />
               <e p="WorldSwitchLighting.cginc" t="Include" />
             </e>
-            <e p="Shadows.shader" t="Include" />
             <e p="WorldSwitchStandard.shader" t="Include" />
           </e>
           <e p="WorldSwitchPostprocessing" t="Include">
