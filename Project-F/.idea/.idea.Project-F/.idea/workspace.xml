@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c3f4f6f-70c8-4b0e-a271-80fb05d7db6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WorldSwitch/World1Obstacle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WorldSwitch/World1Obstacle.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LDTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LDTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,19 +73,19 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+                <state relative-caret-position="276">
+                  <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
                   <folding>
-                    <marker date="1580588244716" expanded="false" signature="6:97" ph="..." />
-                    <marker date="1580588244716" expanded="true" signature="142:2135" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
-                    <marker date="1580588244716" expanded="true" signature="497:639" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="661:1711" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
-                    <marker date="1580588244716" expanded="true" signature="1632:1705" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="1795:2133" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="1942:2012" ph="{...}" />
-                    <marker date="1580588244716" expanded="true" signature="2056:2127" ph="{...}" />
+                    <marker date="1580588873850" expanded="false" signature="6:97" ph="..." />
+                    <marker date="1580588873850" expanded="true" signature="142:2173" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
+                    <marker date="1580588873850" expanded="true" signature="497:639" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="661:1719" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+                    <marker date="1580588873850" expanded="true" signature="1640:1713" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="1803:2171" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="1981:2051" ph="{...}" />
+                    <marker date="1580588873850" expanded="true" signature="2094:2165" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -271,7 +268,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="130" />
     <option name="width" value="1440" />
@@ -314,10 +311,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="12168">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12168" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -338,12 +335,12 @@
       <workItem from="1580068313105" duration="20080000" />
       <workItem from="1580498705734" duration="13812000" />
       <workItem from="1580564073011" duration="4894000" />
-      <workItem from="1580586718815" duration="1524000" />
+      <workItem from="1580586718815" duration="2152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50479000" />
+    <option name="totallyTimeSpent" value="51107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,7 +361,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -691,19 +688,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+        <state relative-caret-position="276">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
           <folding>
-            <marker date="1580588244716" expanded="false" signature="6:97" ph="..." />
-            <marker date="1580588244716" expanded="true" signature="142:2135" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
-            <marker date="1580588244716" expanded="true" signature="497:639" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="661:1711" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
-            <marker date="1580588244716" expanded="true" signature="1632:1705" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="1795:2133" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="1942:2012" ph="{...}" />
-            <marker date="1580588244716" expanded="true" signature="2056:2127" ph="{...}" />
+            <marker date="1580588873850" expanded="false" signature="6:97" ph="..." />
+            <marker date="1580588873850" expanded="true" signature="142:2173" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
+            <marker date="1580588873850" expanded="true" signature="497:639" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="661:1719" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+            <marker date="1580588873850" expanded="true" signature="1640:1713" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="1803:2171" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="1981:2051" ph="{...}" />
+            <marker date="1580588873850" expanded="true" signature="2094:2165" ph="{...}" />
           </folding>
         </state>
       </provider>

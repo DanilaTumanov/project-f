@@ -38,9 +38,9 @@ public class MaterialReplace : EditorWindow
         
         _root = EditorGUILayout.ObjectField("Root object for search", _root, typeof(Transform), true) as Transform;
         
-        _replaceMat = EditorGUILayout.ObjectField("Material for replace", _root, typeof(Material), true) as Material;
+        _replaceMat = EditorGUILayout.ObjectField("Material for replace", _replaceMat, typeof(Material), true) as Material;
         
-        _newMat = EditorGUILayout.ObjectField("New material", _root, typeof(Material), true) as Material;
+        _newMat = EditorGUILayout.ObjectField("New material", _newMat, typeof(Material), true) as Material;
 
         if (GUILayout.Button("Replace"))
         {
@@ -57,7 +57,7 @@ public class MaterialReplace : EditorWindow
             meshRenderer.sharedMaterial = newMat;
         }
 
-        foreach (Transform child in _root)
+        foreach (Transform child in root)
         {
             ReplaceMat(child, replaceMat, newMat);
         }
