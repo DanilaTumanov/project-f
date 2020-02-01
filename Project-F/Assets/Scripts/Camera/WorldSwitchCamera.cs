@@ -12,7 +12,7 @@ namespace Core.Camera
         private Transform _switchCenter;
 
         [SerializeField]
-        [Range(0, 15)]
+        [Range(0, 50)]
         private float _radius;
 
         [SerializeField]
