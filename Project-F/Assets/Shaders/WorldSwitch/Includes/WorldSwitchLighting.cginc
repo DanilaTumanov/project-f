@@ -182,7 +182,9 @@
 
 		InitFragNormals(i);
 
-        clip(((length(i.worldPos.xz - _WorldSwitchOrigin.xz) > _WorldSwitchRadius) - 0.5) * lerp(-1, 1, _IsMainWorld));
+        float isVisibleInMain = length(i.worldPos.xz - _WorldSwitchOrigin.xz) > _WorldSwitchRadius;
+        
+        clip(lerp(-1, 1, isVisibleInMain) * lerp(-1, 1, _IsMainWorld));
 
 		float3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
 		float3 albedo = tex2D(_MainTex, i.uv.xy).rgb * _Tint.rgb;
@@ -195,7 +197,9 @@
 			albedo, _Metallic, specularTint, oneMinusReflectivity
 		);
 
-		return UNITY_BRDF_PBS(
+        fixed facing = dot(viewDir, i.normal);
+
+		return /*facing < -0.1 ? float4(1, 0, 0, 0) :*/ UNITY_BRDF_PBS(
 			albedo, specularTint,
 			oneMinusReflectivity, _Smoothness,
 			i.normal, viewDir,

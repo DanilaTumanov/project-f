@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c3f4f6f-70c8-4b0e-a271-80fb05d7db6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-F/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Yuponic/YuME/PrototypeTiles/CustomBrushes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TOLIK_A_POSE.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TOLIK_A_POSE.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,16 +19,41 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchRenderer.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+                <state relative-caret-position="300">
+                  <caret line="20" selection-start-line="20" selection-end-line="20" />
                   <folding>
-                    <marker date="1580568841976" expanded="true" signature="6:92" ph="..." />
-                    <marker date="1580568841976" expanded="true" signature="180:1075" ph="{...}" />
-                    <marker date="1580568841976" expanded="true" signature="399:599" ph="{...}" />
-                    <marker date="1580568841976" expanded="true" signature="649:718" ph="{...}" />
-                    <marker date="1580568841976" expanded="true" signature="771:838" ph="{...}" />
-                    <marker date="1580568841976" expanded="true" signature="907:1073" ph="{...}" />
-                    <marker date="1580568841976" expanded="true" signature="989:1067" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="6:92" ph="..." />
+                    <marker date="1580570344849" expanded="true" signature="180:1075" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="399:599" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="649:718" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="771:838" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="907:1073" ph="{...}" />
+                    <marker date="1580570344849" expanded="true" signature="989:1067" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="585">
+                  <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+                  <folding>
+                    <marker date="1580594246509" expanded="true" signature="29:1910" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="43:693" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="502:690" ph="/* _WorldSwitchOrigin (&quot;World Switch Origin&quot;, Vector) = (0, 0, 0, 0) ... */" />
+                    <marker date="1580594246509" expanded="true" signature="763:798" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="817:1907" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="829:1317" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="862:900" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="914:1305" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1325:1651" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1380:1417" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1431:1641" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1659:1903" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1670:1709" ph="{...}" />
+                    <marker date="1580594246509" expanded="true" signature="1723:1893" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -40,79 +62,55 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchHideTrigger.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="25" selection-start-line="25" selection-end-line="25" />
+                <state relative-caret-position="330">
+                  <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
                   <folding>
-                    <marker date="1580568841975" expanded="true" signature="6:92" ph="..." />
-                    <marker date="1580568841975" expanded="true" signature="189:449" ph="{...}" />
-                    <marker date="1580568841975" expanded="true" signature="262:357" ph="{...}" />
-                    <marker date="1580568841975" expanded="true" signature="399:446" ph="{...}" />
+                    <marker date="1580570344848" expanded="true" signature="6:92" ph="..." />
+                    <marker date="1580570344848" expanded="true" signature="189:449" ph="{...}" />
+                    <marker date="1580570344848" expanded="true" signature="262:357" ph="{...}" />
+                    <marker date="1580570344848" expanded="true" signature="399:446" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader">
+            <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="762">
-                  <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
+                <state relative-caret-position="840">
+                  <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
                   <folding>
-                    <marker date="1580568841981" expanded="true" signature="29:1686" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="43:499" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="569:604" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="623:1683" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="635:1101" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="646:684" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="698:1089" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="1109:1423" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="1152:1189" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="1203:1413" ph="{...}" />
-                    <marker date="1580568841981" expanded="true" signature="1427:1679" ph="/* Pass{ ... */" />
+                    <marker date="1580588901375" expanded="false" signature="6:97" ph="..." />
+                    <marker date="1580588901375" expanded="true" signature="142:2142" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
+                    <marker date="1580588901375" expanded="true" signature="497:639" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="661:1719" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+                    <marker date="1580588901375" expanded="true" signature="1640:1713" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="1803:2140" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="1950:2020" ph="{...}" />
+                    <marker date="1580588901375" expanded="true" signature="2063:2134" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Editor/Unity.TextMeshPro.Editor.asmdef">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Tests/Runtime/Unity.TextMeshPro.Tests.asmdef">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Runtime/Unity.TextMeshPro.asmdef">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.analytics@3.3.2/DataPrivacy/Unity.Analytics.DataPrivacy.asmdef">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.legacyinputhelpers@2.0.2/Runtime/LegacyInputHelpers.asmdef">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4641B023-C240-46AB-8991-0597E580442A/95/d94e0d04/Collider.cs">
+            <entry file="file://$PROJECT_DIR$/Assets/Plugins/LowPolyNature/Scripts/HealthBar.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1248">
-                  <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="51" selection-end-column="23" />
+                <state relative-caret-position="-12">
+                  <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+                  <folding>
+                    <marker date="1580570344731" expanded="false" signature="6:100" ph="..." />
+                    <marker date="1580570344731" expanded="true" signature="141:1088" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="354:866" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="396:860" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="437:537" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="554:699" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="899:951" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="980:1031" ph="{...}" />
+                    <marker date="1580570344731" expanded="true" signature="1080:1085" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -127,11 +125,11 @@
                 <state relative-caret-position="90">
                   <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
                   <folding>
-                    <marker date="1580568841973" expanded="true" signature="6:92" ph="..." />
-                    <marker date="1580568841973" expanded="true" signature="183:2873" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="1509:1658" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="1685:1749" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="1820:2866" ph="{...}" />
+                    <marker date="1580570344846" expanded="true" signature="6:92" ph="..." />
+                    <marker date="1580570344846" expanded="true" signature="183:2873" ph="{...}" />
+                    <marker date="1580570344846" expanded="true" signature="1509:1658" ph="{...}" />
+                    <marker date="1580570344846" expanded="true" signature="1685:1749" ph="{...}" />
+                    <marker date="1580570344846" expanded="true" signature="1820:2866" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -140,12 +138,12 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldCapture.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
+                <state relative-caret-position="120">
                   <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
                   <folding>
-                    <marker date="1579984396446" expanded="true" signature="6:92" ph="..." />
-                    <marker date="1579984396446" expanded="true" signature="184:993" ph="{...}" />
-                    <marker date="1579984396446" expanded="true" signature="424:986" ph="{...}" />
+                    <marker date="1580570344845" expanded="true" signature="6:92" ph="..." />
+                    <marker date="1580570344845" expanded="true" signature="184:993" ph="{...}" />
+                    <marker date="1580570344845" expanded="true" signature="424:986" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -154,23 +152,23 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldsSwitchMask.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
+                <state relative-caret-position="360">
                   <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
                   <folding>
-                    <marker date="1580568841974" expanded="true" signature="6:92" ph="..." />
-                    <marker date="1580568841974" expanded="true" signature="175:917" ph="{...}" />
-                    <marker date="1580568841974" expanded="true" signature="445:739" ph="{...}" />
-                    <marker date="1580568841974" expanded="true" signature="772:824" ph="{...}" />
-                    <marker date="1580568841974" expanded="true" signature="857:910" ph="{...}" />
+                    <marker date="1580570344847" expanded="true" signature="6:92" ph="..." />
+                    <marker date="1580570344847" expanded="true" signature="175:917" ph="{...}" />
+                    <marker date="1580570344847" expanded="true" signature="445:739" ph="{...}" />
+                    <marker date="1580570344847" expanded="true" signature="772:824" ph="{...}" />
+                    <marker date="1580570344847" expanded="true" signature="857:910" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/Shadows.cginc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="628">
+                <state relative-caret-position="720">
                   <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
                 </state>
               </provider>
@@ -179,16 +177,25 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldSwitchCamera.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+                <state relative-caret-position="210">
+                  <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
                   <folding>
-                    <marker date="1580568841973" expanded="true" signature="6:32" ph="..." />
-                    <marker date="1580568841973" expanded="true" signature="55:1476" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="159:1334" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="761:1134" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="1166:1328" ph="{...}" />
-                    <marker date="1580568841973" expanded="true" signature="1392:1469" ph="{...}" />
+                    <marker date="1580590749336" expanded="true" signature="6:32" ph="..." />
+                    <marker date="1580590749336" expanded="true" signature="55:1476" ph="{...}" />
+                    <marker date="1580590749336" expanded="true" signature="159:1334" ph="{...}" />
+                    <marker date="1580590749336" expanded="true" signature="761:1134" ph="{...}" />
+                    <marker date="1580590749336" expanded="true" signature="1166:1328" ph="{...}" />
+                    <marker date="1580590749336" expanded="true" signature="1392:1469" ph="{...}" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="732">
+                  <caret line="201" column="55" selection-start-line="201" selection-start-column="55" selection-end-line="201" selection-end-column="55" />
                 </state>
               </provider>
             </entry>
@@ -208,16 +215,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4641B023-C240-46AB-8991-0597E580442A/95/d94e0d04/Collider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4641B023-C240-46AB-8991-0597E580442A/95/d94e0d04/Collider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldCapture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchHideTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Tests/Runtime/Unity.TextMeshPro.Tests.asmdef" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldSwitchCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.analytics@3.3.2/DataPrivacy/Unity.Analytics.DataPrivacy.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldSwitch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldsSwitchMask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/LowPolyNature/Scripts/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/StandardSwitchable.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/Shadows.cginc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Editor/Unity.TextMeshPro.Editor.asmdef" root0="FORCE_HIGHLIGHTING" />
@@ -225,7 +234,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.legacyinputhelpers@2.0.2/Runtime/LegacyInputHelpers.asmdef" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerHandling.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E1EC6421-AAD8-403C-A580-448FBED7C0ED/3f/49fa52e1/Component.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -248,10 +256,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldSwitch.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WorldSwitchRenderer.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitch.shader" />
-        <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Camera/WorldSwitchCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/Shadows.cginc" />
         <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/MaterialSetup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Camera/WorldSwitchCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc" />
       </list>
     </option>
   </component>
@@ -262,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="130" />
     <option name="width" value="1440" />
@@ -305,10 +316,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="12168">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12168" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -328,12 +339,13 @@
       <workItem from="1579980565851" duration="5996000" />
       <workItem from="1580068313105" duration="20080000" />
       <workItem from="1580498705734" duration="13812000" />
-      <workItem from="1580564073011" duration="4893000" />
+      <workItem from="1580564073011" duration="4894000" />
+      <workItem from="1580586718815" duration="2152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48954000" />
+    <option name="totallyTimeSpent" value="53271000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,7 +357,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.11880661" />
@@ -354,7 +366,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -516,127 +528,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchRenderer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <marker date="1580568841976" expanded="true" signature="6:92" ph="..." />
-            <marker date="1580568841976" expanded="true" signature="180:1075" ph="{...}" />
-            <marker date="1580568841976" expanded="true" signature="399:599" ph="{...}" />
-            <marker date="1580568841976" expanded="true" signature="649:718" ph="{...}" />
-            <marker date="1580568841976" expanded="true" signature="771:838" ph="{...}" />
-            <marker date="1580568841976" expanded="true" signature="907:1073" ph="{...}" />
-            <marker date="1580568841976" expanded="true" signature="989:1067" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.analytics@3.3.2/DataPrivacy/Unity.Analytics.DataPrivacy.asmdef" />
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Runtime/Unity.TextMeshPro.asmdef">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchHideTrigger.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <marker date="1580568841975" expanded="true" signature="6:92" ph="..." />
-            <marker date="1580568841975" expanded="true" signature="189:449" ph="{...}" />
-            <marker date="1580568841975" expanded="true" signature="262:357" ph="{...}" />
-            <marker date="1580568841975" expanded="true" signature="399:446" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4641B023-C240-46AB-8991-0597E580442A/95/d94e0d04/Collider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.legacyinputhelpers@2.0.2/Runtime/LegacyInputHelpers.asmdef">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldCapture.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="120">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
-            <marker date="1579984396446" expanded="true" signature="6:92" ph="..." />
-            <marker date="1579984396446" expanded="true" signature="184:993" ph="{...}" />
-            <marker date="1579984396446" expanded="true" signature="424:986" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldSwitch.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <marker date="1580568841973" expanded="true" signature="6:92" ph="..." />
-            <marker date="1580568841973" expanded="true" signature="183:2873" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="1509:1658" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="1685:1749" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="1820:2866" ph="{...}" />
+            <marker date="1580570344845" expanded="true" signature="6:92" ph="..." />
+            <marker date="1580570344845" expanded="true" signature="184:993" ph="{...}" />
+            <marker date="1580570344845" expanded="true" signature="424:986" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldsSwitchMask.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="360">
           <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
           <folding>
-            <marker date="1580568841974" expanded="true" signature="6:92" ph="..." />
-            <marker date="1580568841974" expanded="true" signature="175:917" ph="{...}" />
-            <marker date="1580568841974" expanded="true" signature="445:739" ph="{...}" />
-            <marker date="1580568841974" expanded="true" signature="772:824" ph="{...}" />
-            <marker date="1580568841974" expanded="true" signature="857:910" ph="{...}" />
+            <marker date="1580570344847" expanded="true" signature="6:92" ph="..." />
+            <marker date="1580570344847" expanded="true" signature="175:917" ph="{...}" />
+            <marker date="1580570344847" expanded="true" signature="445:739" ph="{...}" />
+            <marker date="1580570344847" expanded="true" signature="772:824" ph="{...}" />
+            <marker date="1580570344847" expanded="true" signature="857:910" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/WorldSwitchCamera.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+        <state relative-caret-position="210">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
-            <marker date="1580568841973" expanded="true" signature="6:32" ph="..." />
-            <marker date="1580568841973" expanded="true" signature="55:1476" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="159:1334" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="761:1134" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="1166:1328" ph="{...}" />
-            <marker date="1580568841973" expanded="true" signature="1392:1469" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1248">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="51" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/Shadows.cginc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
-          <folding>
-            <marker date="1580568841981" expanded="true" signature="29:1686" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="43:499" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="569:604" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="623:1683" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="635:1101" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="646:684" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="698:1089" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="1109:1423" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="1152:1189" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="1203:1413" ph="{...}" />
-            <marker date="1580568841981" expanded="true" signature="1427:1679" ph="/* Pass{ ... */" />
+            <marker date="1580590749336" expanded="true" signature="6:32" ph="..." />
+            <marker date="1580590749336" expanded="true" signature="55:1476" ph="{...}" />
+            <marker date="1580590749336" expanded="true" signature="159:1334" ph="{...}" />
+            <marker date="1580590749336" expanded="true" signature="761:1134" ph="{...}" />
+            <marker date="1580590749336" expanded="true" signature="1166:1328" ph="{...}" />
+            <marker date="1580590749336" expanded="true" signature="1392:1469" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -647,14 +582,131 @@
     <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Tests/Runtime/Unity.TextMeshPro.Tests.asmdef">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Runtime/Unity.TextMeshPro.asmdef">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4641B023-C240-46AB-8991-0597E580442A/95/d94e0d04/Collider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.analytics@3.3.2/DataPrivacy/Unity.Analytics.DataPrivacy.asmdef">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialSetup.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/PostprocessingWorldSwitch.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <marker date="1580570344846" expanded="true" signature="6:92" ph="..." />
+            <marker date="1580570344846" expanded="true" signature="183:2873" ph="{...}" />
+            <marker date="1580570344846" expanded="true" signature="1509:1658" ph="{...}" />
+            <marker date="1580570344846" expanded="true" signature="1685:1749" ph="{...}" />
+            <marker date="1580570344846" expanded="true" signature="1820:2866" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.legacyinputhelpers@2.0.2/Runtime/LegacyInputHelpers.asmdef">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchRenderer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <marker date="1580570344849" expanded="true" signature="6:92" ph="..." />
+            <marker date="1580570344849" expanded="true" signature="180:1075" ph="{...}" />
+            <marker date="1580570344849" expanded="true" signature="399:599" ph="{...}" />
+            <marker date="1580570344849" expanded="true" signature="649:718" ph="{...}" />
+            <marker date="1580570344849" expanded="true" signature="771:838" ph="{...}" />
+            <marker date="1580570344849" expanded="true" signature="907:1073" ph="{...}" />
+            <marker date="1580570344849" expanded="true" signature="989:1067" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Shadows.shader" />
+    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/Shadows.cginc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/WorldSwitchHideTrigger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <marker date="1580570344848" expanded="true" signature="6:92" ph="..." />
+            <marker date="1580570344848" expanded="true" signature="189:449" ph="{...}" />
+            <marker date="1580570344848" expanded="true" signature="262:357" ph="{...}" />
+            <marker date="1580570344848" expanded="true" signature="399:446" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Editor/MaterialReplace.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+          <folding>
+            <marker date="1580588901375" expanded="false" signature="6:97" ph="..." />
+            <marker date="1580588901375" expanded="true" signature="142:2142" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="149:259" ph="/* string myString = &quot;Hello World&quot;; ... */" />
+            <marker date="1580588901375" expanded="true" signature="497:639" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="661:1719" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="676:1083" ph="/* GUILayout.Label (&quot;Base Settings&quot;, EditorStyles.boldLabel); ... */" />
+            <marker date="1580588901375" expanded="true" signature="1640:1713" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="1803:2140" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="1950:2020" ph="{...}" />
+            <marker date="1580588901375" expanded="true" signature="2063:2134" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/LowPolyNature/Scripts/HealthBar.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding>
+            <marker date="1580570344731" expanded="false" signature="6:100" ph="..." />
+            <marker date="1580570344731" expanded="true" signature="141:1088" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="354:866" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="396:860" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="437:537" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="554:699" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="899:951" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="980:1031" ph="{...}" />
+            <marker date="1580570344731" expanded="true" signature="1080:1085" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/WorldSwitchStandard.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <marker date="1580594246509" expanded="true" signature="29:1910" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="43:693" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="502:690" ph="/* _WorldSwitchOrigin (&quot;World Switch Origin&quot;, Vector) = (0, 0, 0, 0) ... */" />
+            <marker date="1580594246509" expanded="true" signature="763:798" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="817:1907" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="829:1317" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="862:900" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="914:1305" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1325:1651" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1380:1417" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1431:1641" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1659:1903" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1670:1709" ph="{...}" />
+            <marker date="1580594246509" expanded="true" signature="1723:1893" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Shaders/WorldSwitch/Includes/WorldSwitchLighting.cginc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="201" column="55" selection-start-line="201" selection-start-column="55" selection-end-line="201" selection-end-column="55" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

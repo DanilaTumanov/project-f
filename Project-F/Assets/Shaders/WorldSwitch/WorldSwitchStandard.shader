@@ -10,6 +10,10 @@
 		_DetailTex("Detail Texture", 2D) = "gray" {}
 		[NoScaleOffset] _DetailNormalMap("Detail Bump", 2D) = "bump" {}
 		_DetailBumpScale("Detail Bump Scale", Range(0, 1)) = 1
+		
+		//_WorldSwitchOrigin ("World Switch Origin", Vector) = (0, 0, 0, 0)
+		//_WorldSwitchRadius ("World Switch Radius", Range(0, 100)) = 0
+		//[Toggle] _IsMainWorld ("Is Main World", FLoat) = 1
 	}
 
 
@@ -26,6 +30,8 @@
 
 		
 		Pass{
+
+            Cull Off
 
 			Tags {
 				"LightMode" = "ForwardBase"
@@ -58,6 +64,7 @@
 
 			Blend One One
 			ZWrite Off
+			Cull Off
 
 			Tags {
 				"LightMode" = "ForwardAdd"
@@ -80,7 +87,7 @@
 
 		}
 
-		/*Pass{
+		Pass{
 
 			Tags {
 				"LightMode" = "ShadowCaster"
@@ -99,7 +106,7 @@
 
 			ENDCG
 
-		}*/
+		}
 
 	}
 
