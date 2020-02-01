@@ -31,6 +31,8 @@
 		
 		Pass{
 
+            Cull Off
+
 			Tags {
 				"LightMode" = "ForwardBase"
 			}
@@ -62,6 +64,7 @@
 
 			Blend One One
 			ZWrite Off
+			Cull Off
 
 			Tags {
 				"LightMode" = "ForwardAdd"
