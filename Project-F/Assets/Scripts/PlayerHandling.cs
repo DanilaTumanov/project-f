@@ -16,8 +16,9 @@ public class PlayerHandling : MonoBehaviour
     }
     
     [SerializeField] private NavMeshAgent _navMeshAgent;
-    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private CapsuleCollider _capsuleCollider;
+    [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
     
     [SerializeField] private bool _isNavMeshControl;
@@ -48,7 +49,7 @@ public class PlayerHandling : MonoBehaviour
     {
         if (_isNavMeshControl)
         {
-            NavMeshControl();
+//            NavMeshControl();
         }
         else
         {
@@ -62,8 +63,8 @@ public class PlayerHandling : MonoBehaviour
 
             if (_isNavMeshControl)
             {
-                _navMeshAgent.enabled = true;
-                _capsuleCollider.enabled = false;
+//                _navMeshAgent.enabled = true;
+//                _capsuleCollider.enabled = false;
             }
             else
             {
@@ -82,11 +83,12 @@ public class PlayerHandling : MonoBehaviour
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                    _normalMovementVector, CHECK_WALL_DIST))
+                    _normalMovementVector, CHECK_WALL_DIST) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
                 {
                     _wallDirection = _normalMovementVector;
                     _currentState = State.Climbing;
-                    _rb.useGravity = false;
+                    _rigidbody.useGravity = false;
                 }
             }
 
@@ -96,23 +98,23 @@ public class PlayerHandling : MonoBehaviour
         switch (_currentState)
         {
             case State.Climbing:
-                _rb.velocity = Vector3.up * _movementSpeed;
+                _rigidbody.velocity = Vector3.up * _movementSpeed;
             
                 if (!Physics.Raycast(_playerBottom.position, 
                     _wallDirection, CHECK_WALL_DIST))
                 {
                     _currentState = State.ClimbingMoving;
                     _climbedPosition = transform.position;
-                    _rb.velocity = Vector3.zero;
+                    _rigidbody.velocity = Vector3.zero;
                 }
                 break;
             case State.ClimbingMoving:
-                _rb.velocity = _wallDirection * _movementSpeed;
+                _rigidbody.velocity = _wallDirection * _movementSpeed;
 
                 if (Mathf.Abs(Vector3.Distance(_climbedPosition, transform.position)) >= DELTA_CLIMBED_POS)
                 {
-                    _rb.velocity = Vector3.zero;
-                    _rb.useGravity = true;
+                    _rigidbody.velocity = Vector3.zero;
+                    _rigidbody.useGravity = true;
                     _currentState = State.Moving;
                 }
                 break;
@@ -136,7 +138,7 @@ public class PlayerHandling : MonoBehaviour
         {
             case State.Moving:
                 _normalMovementVector = GetNormalMovementVector();
-                _rb.transform.Translate(_movementSpeed * Time.deltaTime * _normalMovementVector);
+                _rigidbody.transform.Translate(_movementSpeed * Time.deltaTime * _normalMovementVector);
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -165,6 +167,7 @@ public class PlayerHandling : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 300, 30), "Control (click P to change): " + (_isNavMeshControl ? "NavMesh" : "WASD"));
+        GUI.Label(new Rect(10, 10, 300, 60), "Control (click P to change): " 
+                                             + (_isNavMeshControl ? "NavMesh" : "WASD\nTo climb press forward + space"));
     }
 }
