@@ -8,6 +8,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerHandling : MonoBehaviour
 {
+    private enum ControlMode
+    {
+        Wasd,
+        WasdSpacce,
+        Navmesh
+    }
+
     private enum State
     {
         Moving,
@@ -21,7 +28,6 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
     
-    [SerializeField] private bool _isNavMeshControl;
     [SerializeField] private float _movementSpeed = 10;
 
     private Camera _mainCamera;
@@ -33,6 +39,15 @@ public class PlayerHandling : MonoBehaviour
 
     private bool _climbIsPressed;
 
+    private int _controlModeIndex;
+    private ControlMode _currentControlMode;
+    private readonly ControlMode[] _controlModes =
+    {
+        ControlMode.Wasd,
+        ControlMode.WasdSpacce,
+        ControlMode.Navmesh
+    };
+
     private const float DELTA_CLIMBED_POS = 1f; 
     private const float CHECK_WALL_DIST = 2.0f; 
 
@@ -43,36 +58,28 @@ public class PlayerHandling : MonoBehaviour
         
         _normalMovementVector = Vector3.zero;
         _wallDirection = Vector3.zero;
+
+        _controlModeIndex = 0;
+        _currentControlMode = _controlModes[_controlModeIndex];
     }
 
     private void Update()
     {
-        if (_isNavMeshControl)
+        switch (_currentControlMode)
         {
-//            NavMeshControl();
-        }
-        else
-        {
-            UpdatePosition();
+            case ControlMode.Wasd:
+                
+                break;
+            case ControlMode.WasdSpacce:
+                UpdatePosition();
+                break;
+            case ControlMode.Navmesh:
+                NavMeshControl();
+                break;
         }
 
         //change control
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _isNavMeshControl = !_isNavMeshControl;
-
-            if (_isNavMeshControl)
-            {
-//                _navMeshAgent.enabled = true;
-//                _capsuleCollider.enabled = false;
-            }
-            else
-            {
-                transform.rotation = Quaternion.identity;
-                _navMeshAgent.enabled = false;
-                _capsuleCollider.enabled = true;
-            }
-        }
+        ChangeControlHandler();
     }
 
     private void FixedUpdate()
@@ -130,8 +137,7 @@ public class PlayerHandling : MonoBehaviour
             Input.GetAxis("Vertical")
         ).normalized;
     }
-    
-    
+
     private void UpdatePosition()
     {
         switch (_currentState)
@@ -165,9 +171,53 @@ public class PlayerHandling : MonoBehaviour
         }
     }
 
+    private void ChangeControlHandler()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            _controlModeIndex++;
+
+            if (_controlModeIndex >= _controlModes.Length)
+            {
+                _controlModeIndex = 0;
+            }
+            
+            _currentControlMode = _controlModes[_controlModeIndex];
+
+            if (_currentControlMode == ControlMode.Navmesh)
+            {
+                _navMeshAgent.enabled = true;
+                _capsuleCollider.enabled = false;
+            }
+            else
+            {
+                transform.rotation = Quaternion.identity;
+                _navMeshAgent.enabled = false;
+                _capsuleCollider.enabled = true;
+            }
+        }
+    }
+
+    private string _infoText = string.Empty;
+    
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 300, 60), "Control (click P to change): " 
-                                             + (_isNavMeshControl ? "NavMesh" : "WASD\nTo climb press forward + space"));
+        switch (_currentControlMode)
+        {
+            case ControlMode.Navmesh:
+                _infoText = "NavMesh";
+                break;
+            case ControlMode.Wasd:
+                _infoText = "WASD\nTo climb press forward";
+                break;
+            case ControlMode.WasdSpacce:
+                _infoText = "WASD\nTo climb press forward + space";
+                break;
+            default:
+                _infoText = String.Empty;
+                break;
+        }
+        
+        GUI.Label(new Rect(10, 10, 300, 60), $"Control (click P to change): {_infoText}");
     }
 }
