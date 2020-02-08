@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,7 +9,7 @@ public class PlayerHandling : MonoBehaviour
     private enum ControlMode
     {
         Wasd,
-        WasdSpacce,
+        WasdSpace,
         Navmesh
     }
 
@@ -38,13 +36,16 @@ public class PlayerHandling : MonoBehaviour
     private Vector3 _climbedPosition;
 
     private bool _climbIsPressed;
+    private bool _isWallForward;
 
     private int _controlModeIndex;
+
     private ControlMode _currentControlMode;
+
     private readonly ControlMode[] _controlModes =
     {
+        ControlMode.WasdSpace,
         ControlMode.Wasd,
-        ControlMode.WasdSpacce,
         ControlMode.Navmesh
     };
 
@@ -68,9 +69,7 @@ public class PlayerHandling : MonoBehaviour
         switch (_currentControlMode)
         {
             case ControlMode.Wasd:
-                
-                break;
-            case ControlMode.WasdSpacce:
+            case ControlMode.WasdSpace:
                 UpdatePosition();
                 break;
             case ControlMode.Navmesh:
@@ -84,13 +83,19 @@ public class PlayerHandling : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckWallHandler();
+        ClimbingHandler();
+    }
+    
+    private void ClimbingHandler()
+    {
         if (_climbIsPressed)
         {
             if (_normalMovementVector != Vector3.zero)
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                    _normalMovementVector, CHECK_WALL_DIST) 
+                        _normalMovementVector, CHECK_WALL_DIST) 
                     && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
                 {
                     _wallDirection = _normalMovementVector;
@@ -129,6 +134,25 @@ public class PlayerHandling : MonoBehaviour
     }
 
 
+    private void CheckWallHandler()
+    {
+        if (_currentControlMode == ControlMode.Wasd)
+        {
+            if (_normalMovementVector != Vector3.zero)
+            {
+                //чекаем стену спереди
+                if (Physics.Raycast(transform.position, 
+                        _normalMovementVector, CHECK_WALL_DIST) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
+                {
+                    _wallDirection = _normalMovementVector;
+                    _currentState = State.Climbing;
+                    _rigidbody.useGravity = false;
+                }
+            }
+        }
+    }
+
     private Vector3 GetNormalMovementVector()
     {
         return new Vector3(
@@ -145,15 +169,14 @@ public class PlayerHandling : MonoBehaviour
             case State.Moving:
                 _normalMovementVector = GetNormalMovementVector();
                 _rigidbody.transform.Translate(_movementSpeed * Time.deltaTime * _normalMovementVector);
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    _climbIsPressed = true;
-                }
-
-                break;
-            case State.ClimbingMoving:
                 
+                if (_currentControlMode == ControlMode.WasdSpace)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        _climbIsPressed = true;
+                    }
+                }
                 break;
         }
     }
@@ -210,7 +233,7 @@ public class PlayerHandling : MonoBehaviour
             case ControlMode.Wasd:
                 _infoText = "WASD\nTo climb press forward";
                 break;
-            case ControlMode.WasdSpacce:
+            case ControlMode.WasdSpace:
                 _infoText = "WASD\nTo climb press forward + space";
                 break;
             default:
