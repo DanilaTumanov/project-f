@@ -197,8 +197,6 @@
 			albedo, _Metallic, specularTint, oneMinusReflectivity
 		);
 
-        fixed facing = dot(viewDir, i.normal);
-
 		return /*facing < -0.1 ? float4(1, 0, 0, 0) :*/ UNITY_BRDF_PBS(
 			albedo, specularTint,
 			oneMinusReflectivity, _Smoothness,

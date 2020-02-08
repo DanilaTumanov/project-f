@@ -1,4 +1,4 @@
-﻿Shader "WorldSwitch/Standard"{
+﻿Shader "WorldSwitch/Standard (Legacy)"{
 
 	Properties{
 		_Tint("Tint", Color) = (1, 1, 1, 1)
