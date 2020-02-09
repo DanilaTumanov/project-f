@@ -44,8 +44,8 @@ public class PlayerHandling : MonoBehaviour
 
     private readonly ControlMode[] _controlModes =
     {
-        ControlMode.WasdSpace,
         ControlMode.Wasd,
+        ControlMode.WasdSpace,
         ControlMode.Navmesh
     };
 
@@ -55,13 +55,13 @@ public class PlayerHandling : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main;
-        _currentState = State.Moving;
-        
+
         _normalMovementVector = Vector3.zero;
         _wallDirection = Vector3.zero;
-
-        _controlModeIndex = 0;
-        _currentControlMode = _controlModes[_controlModeIndex];
+        
+        _currentState = State.Moving;
+        _controlModeIndex = _controlModes.Length - 1;
+        ChangeControlHandler();
     }
 
     private void Update()
@@ -78,7 +78,10 @@ public class PlayerHandling : MonoBehaviour
         }
 
         //change control
-        ChangeControlHandler();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ChangeControlHandler();
+        }
     }
 
     private void FixedUpdate()
@@ -196,28 +199,25 @@ public class PlayerHandling : MonoBehaviour
 
     private void ChangeControlHandler()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        _controlModeIndex++;
+
+        if (_controlModeIndex >= _controlModes.Length)
         {
-            _controlModeIndex++;
+            _controlModeIndex = 0;
+        }
+        
+        _currentControlMode = _controlModes[_controlModeIndex];
 
-            if (_controlModeIndex >= _controlModes.Length)
-            {
-                _controlModeIndex = 0;
-            }
-            
-            _currentControlMode = _controlModes[_controlModeIndex];
-
-            if (_currentControlMode == ControlMode.Navmesh)
-            {
-                _navMeshAgent.enabled = true;
-                _capsuleCollider.enabled = false;
-            }
-            else
-            {
-                transform.rotation = Quaternion.identity;
-                _navMeshAgent.enabled = false;
-                _capsuleCollider.enabled = true;
-            }
+        if (_currentControlMode == ControlMode.Navmesh)
+        {
+            _navMeshAgent.enabled = true;
+            _capsuleCollider.enabled = false;
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+            _navMeshAgent.enabled = false;
+            _capsuleCollider.enabled = true;
         }
     }
 
