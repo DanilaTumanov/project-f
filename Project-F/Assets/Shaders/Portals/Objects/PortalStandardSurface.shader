@@ -1,4 +1,4 @@
-﻿Shader "Portal/StandardSurface"
+﻿Shader "Portals/StandardSurface"
 {
     Properties
     {
@@ -112,6 +112,10 @@
         
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            
+            //c = dot(IN.viewDir, IN.normal) > 0 ? c : 1;
+            c.a = !_IsMainWorld && visible;
+            
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

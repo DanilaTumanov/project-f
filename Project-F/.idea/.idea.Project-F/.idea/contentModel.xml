@@ -70,10 +70,12 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
-            <e p="PortalSystem.cs" t="Include" />
-            <e p="PostprocessingWorldCapture.cs" t="Include" />
-            <e p="PostprocessingWorldSwitch.cs" t="Include" />
-            <e p="WorldsSwitchMask.cs" t="Include" />
+            <e p="Obsolete" t="Include">
+              <e p="PostprocessingWorldCapture.cs" t="Include" />
+              <e p="PostprocessingWorldSwitch.cs" t="Include" />
+              <e p="WorldsSwitchMask.cs" t="Include" />
+            </e>
+            <e p="PortalsPostprocessing.cs" t="Include" />
           </e>
           <e p="CameraBehaviour.cs" t="Include" />
           <e p="Editor" t="Include">
@@ -81,10 +83,11 @@
           </e>
           <e p="Player.cs" t="Include" />
           <e p="PlayerHandling.cs" t="Include" />
-          <e p="TextureRenderCamera.cs" t="Include" />
-          <e p="WorldSwitch" t="Include">
+          <e p="Portals" t="Include">
             <e p="Portal.cs" t="Include" />
+            <e p="PortalSystem.cs" t="Include" />
           </e>
+          <e p="TextureRenderCamera.cs" t="Include" />
           <e p="WorldSwitchHideTrigger.cs" t="Include" />
           <e p="WorldSwitchRenderer.cs" t="Include" />
         </e>
@@ -104,7 +107,12 @@
             </e>
           </e>
           <e p="Portals" t="Include">
-            <e p="PortalStandardSurface.shader" t="Include" />
+            <e p="Objects" t="Include">
+              <e p="PortalStandardSurface.shader" t="Include" />
+            </e>
+            <e p="Postprocessing" t="Include">
+              <e p="PortalsPostprocessing.shader" t="Include" />
+            </e>
           </e>
           <e p="StandardSwitchable.shader" t="Include" />
         </e>
