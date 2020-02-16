@@ -7,23 +7,24 @@ using UnityEngine;
 public class CameraBehaviour : MonoBehaviour
 {
 
-    [SerializeField]
-    private Player _player;
-
-    [SerializeField]
-    private Vector3 _position;
-
-
-
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private ButtonControlView _switchCameraView;
+    
+    [SerializeField] private Player _player;
+    [SerializeField] private Vector3 _position;
+    
     private Quaternion _rotation;
-
 
     private void Awake()
     {
         UpdatePosition();
         UpdateRotation();
+
+        if (_switchCameraView != null)
+        {
+            _switchCameraView.OnButtonDown += CameraSwitchHandler;
+        }
     }
-    
 
     private void LateUpdate()
     {
@@ -44,6 +45,14 @@ public class CameraBehaviour : MonoBehaviour
     private void UpdateRotation()
     {
         transform.LookAt(_player.transform);
+    }
+
+    private void CameraSwitchHandler()
+    {
+        if (_mainCamera != null)
+        {
+            _mainCamera.orthographic = !_mainCamera.orthographic;
+        }
     }
     
 }
