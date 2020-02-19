@@ -87,6 +87,11 @@ public class PlayerHandling : MonoBehaviour
         {
             ChangeControlHandler();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.Quit();
+        }
     }
 
     private void FixedUpdate()
