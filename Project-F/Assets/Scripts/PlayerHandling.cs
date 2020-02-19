@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -25,8 +26,12 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
-    
     [SerializeField] private float _movementSpeed = 10;
+
+    [Header("Control")] 
+    [SerializeField] private GameObject _joystickGroup;
+    [SerializeField] private FixedJoystick _fixedJoystick;
+    [SerializeField] private ButtonControlView _climbButton;
 
     private Camera _mainCamera;
     private State _currentState;
@@ -44,8 +49,8 @@ public class PlayerHandling : MonoBehaviour
 
     private readonly ControlMode[] _controlModes =
     {
-        ControlMode.WasdSpace,
         ControlMode.Wasd,
+        ControlMode.WasdSpace,
         ControlMode.Navmesh
     };
 
@@ -55,13 +60,13 @@ public class PlayerHandling : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main;
-        _currentState = State.Moving;
-        
+
         _normalMovementVector = Vector3.zero;
         _wallDirection = Vector3.zero;
-
-        _controlModeIndex = 0;
-        _currentControlMode = _controlModes[_controlModeIndex];
+        
+        _currentState = State.Moving;
+        _controlModeIndex = _controlModes.Length - 1;
+        ChangeControlHandler();
     }
 
     private void Update()
@@ -78,7 +83,10 @@ public class PlayerHandling : MonoBehaviour
         }
 
         //change control
-        ChangeControlHandler();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ChangeControlHandler();
+        }
     }
 
     private void FixedUpdate()
@@ -155,6 +163,16 @@ public class PlayerHandling : MonoBehaviour
 
     private Vector3 GetNormalMovementVector()
     {
+        //джойстик
+        if (Mathf.Abs(_fixedJoystick.Horizontal) > 0.01 || Mathf.Abs(_fixedJoystick.Vertical) > 0.01)
+        {
+            return new Vector3(
+                    _fixedJoystick.Horizontal, 
+                    0, 
+                    _fixedJoystick.Vertical)
+                .normalized;
+        }
+
         return new Vector3(
             Input.GetAxis("Horizontal"),
             0,
@@ -172,7 +190,7 @@ public class PlayerHandling : MonoBehaviour
                 
                 if (_currentControlMode == ControlMode.WasdSpace)
                 {
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.Space) || _climbButton.IsPressed)
                     {
                         _climbIsPressed = true;
                     }
@@ -196,28 +214,31 @@ public class PlayerHandling : MonoBehaviour
 
     private void ChangeControlHandler()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        _controlModeIndex++;
+
+        if (_controlModeIndex >= _controlModes.Length)
         {
-            _controlModeIndex++;
+            _controlModeIndex = 0;
+        }
+        
+        _currentControlMode = _controlModes[_controlModeIndex];
 
-            if (_controlModeIndex >= _controlModes.Length)
-            {
-                _controlModeIndex = 0;
-            }
+        if (_currentControlMode == ControlMode.Navmesh)
+        {
+            _navMeshAgent.enabled = true;
+            _capsuleCollider.enabled = false;
             
-            _currentControlMode = _controlModes[_controlModeIndex];
-
-            if (_currentControlMode == ControlMode.Navmesh)
-            {
-                _navMeshAgent.enabled = true;
-                _capsuleCollider.enabled = false;
-            }
-            else
-            {
-                transform.rotation = Quaternion.identity;
-                _navMeshAgent.enabled = false;
-                _capsuleCollider.enabled = true;
-            }
+            _joystickGroup.SetActive(false);
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+            _navMeshAgent.enabled = false;
+            _capsuleCollider.enabled = true;
+            
+            _joystickGroup.SetActive(true);
+            
+            _climbButton.gameObject.SetActive(_currentControlMode == ControlMode.WasdSpace);
         }
     }
 
