@@ -43,10 +43,8 @@ namespace Core.Camera
         }
 
 
-        private void Update()
+        /*private void Update()
         {
-            /*Shader.SetGlobalVector(WorldSwitchOrigin, _switchCenter.position);
-            Shader.SetGlobalFloat(WorldSwitchRadius, _radius);*/
             if (Input.GetMouseButtonDown(0))
             {
                 var ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -56,7 +54,7 @@ namespace Core.Camera
                     SetPortal(hitInfo.transform.position);
                 }
             }
-        }
+        }*/
 
 
         public Portal SetPortal(Vector3 position)
