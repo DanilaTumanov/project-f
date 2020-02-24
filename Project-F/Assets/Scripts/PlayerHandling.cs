@@ -1,8 +1,7 @@
 ﻿using System;
+using Portals;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
-
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerHandling : MonoBehaviour
@@ -26,7 +25,11 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private CapsuleCollider _capsuleCollider;
     [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
-    [SerializeField] private float _movementSpeed = 10;
+    [SerializeField] private float _movementSpeed = 10f;
+
+    [Header("Portal Settings")]
+    [SerializeField] private PortalMarker _portalMarker;
+    [SerializeField] private GameObject _portalPrefab;
 
     [Header("Control")] 
     [SerializeField] private GameObject _joystickGroup;
@@ -39,13 +42,18 @@ public class PlayerHandling : MonoBehaviour
     
     private Vector3 _wallDirection;
     private Vector3 _climbedPosition;
-
     private bool _climbIsPressed;
     private bool _isWallForward;
-
     private int _controlModeIndex;
 
     private ControlMode _currentControlMode;
+    
+    private bool _isPortalThrowAvailable;
+    private GameObject _portal;
+    
+    private const KeyCode CHANGE_CONTROL_KEY = KeyCode.P;
+    private const KeyCode APP_QUIT_KEY = KeyCode.Q;
+    private const KeyCode PORTAL_THROW_KEY = KeyCode.L;
 
     private readonly ControlMode[] _controlModes =
     {
@@ -64,6 +72,8 @@ public class PlayerHandling : MonoBehaviour
         _normalMovementVector = Vector3.zero;
         _wallDirection = Vector3.zero;
         
+        _isPortalThrowAvailable = false;
+        
         _currentState = State.Moving;
         _controlModeIndex = _controlModes.Length - 1;
         ChangeControlHandler();
@@ -71,6 +81,22 @@ public class PlayerHandling : MonoBehaviour
 
     private void Update()
     {
+        //change control
+        if (Input.GetKeyDown(CHANGE_CONTROL_KEY))
+        {
+            ChangeControlHandler();
+        }
+
+        if (Input.GetKeyDown(APP_QUIT_KEY))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(PORTAL_THROW_KEY))
+        {
+            SwitchPortalThrowing(true);
+        }
+        
         switch (_currentControlMode)
         {
             case ControlMode.Wasd:
@@ -82,15 +108,9 @@ public class PlayerHandling : MonoBehaviour
                 break;
         }
 
-        //change control
-        if (Input.GetKeyDown(KeyCode.P))
+        if (_isPortalThrowAvailable)
         {
-            ChangeControlHandler();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Application.Quit();
+            UpdatePortalMarkerPosition();
         }
     }
 
@@ -185,6 +205,9 @@ public class PlayerHandling : MonoBehaviour
         ).normalized;
     }
 
+    /// <summary>
+    /// Управление через WASD
+    /// </summary>
     private void UpdatePosition()
     {
         switch (_currentState)
@@ -204,9 +227,12 @@ public class PlayerHandling : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Управление через navmesh
+    /// </summary>
     private void NavMeshControl()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !_isPortalThrowAvailable)
         {
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -217,6 +243,9 @@ public class PlayerHandling : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Смена управления
+    /// </summary>
     private void ChangeControlHandler()
     {
         _controlModeIndex++;
@@ -247,8 +276,61 @@ public class PlayerHandling : MonoBehaviour
         }
     }
 
+    //TODO: Input manager
+    private Vector3 _oldMousePosition = new Vector3();
+    private Vector3 _oldPlayerPosition = new Vector3();
+    private const float CHANGE_POS_PRECISION = 0.1f;
+    
+    /// <summary>
+    /// Управление броском портала
+    /// </summary>
+    private void UpdatePortalMarkerPosition()
+    {
+        var mousePos = Input.mousePosition;
+        var playerPos = transform.position;
+
+        bool isMousePosChanged = Mathf.Abs(_oldMousePosition.x - mousePos.x) > CHANGE_POS_PRECISION
+                                 || Mathf.Abs(_oldMousePosition.y - mousePos.y) > CHANGE_POS_PRECISION
+                                 || Mathf.Abs(_oldMousePosition.z - mousePos.z) > CHANGE_POS_PRECISION;
+
+        bool isPlayerPosChanged = Mathf.Abs(_oldPlayerPosition.x - playerPos.x) > CHANGE_POS_PRECISION
+                                  || Mathf.Abs(_oldPlayerPosition.y - playerPos.y) > CHANGE_POS_PRECISION
+                                  || Mathf.Abs(_oldPlayerPosition.z - playerPos.z) > CHANGE_POS_PRECISION;
+
+        if (isMousePosChanged || isPlayerPosChanged)
+        {
+            var ray = _mainCamera.ScreenPointToRay(mousePos);
+            if (Physics.Raycast(ray, out var hit))
+            {
+                _portalMarker.SetPosition(transform.position, hit.point);
+            }
+            
+            _oldMousePosition = mousePos;
+            _oldPlayerPosition = playerPos;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_portal != null)
+            {
+                Destroy(_portal.gameObject);
+            }
+
+            _portal = Instantiate(_portalPrefab);
+            _portal.transform.position = _portalMarker.transform.position;
+            SwitchPortalThrowing(false);
+        }
+    }
+
+    private void SwitchPortalThrowing(bool isAvailable)
+    {
+        _isPortalThrowAvailable = isAvailable;
+        _portalMarker.SetAvailable(isAvailable);
+    }
+
     private string _infoText = string.Empty;
     
+    // TODO: DEBUG
     private void OnGUI()
     {
         switch (_currentControlMode)
@@ -268,5 +350,15 @@ public class PlayerHandling : MonoBehaviour
         }
         
         GUI.Label(new Rect(10, 10, 300, 60), $"Control (click P to change): {_infoText}");
+    }
+    
+    // TODO: DEBUG
+    private void OnDrawGizmos()
+    {
+        if (_isPortalThrowAvailable)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(_playerBottom.position, _portalMarker.ThrowRadius);
+        }
     }
 }
