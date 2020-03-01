@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Camera;
 using Portals;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,18 +24,16 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private CapsuleCollider _capsuleCollider;
+    [SerializeField] private float _movementSpeed = 10f;
+    
+    [Header("Climb Settings")]
     [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
-    [SerializeField] private float _movementSpeed = 10f;
-
+    [SerializeField] private float _checkWallDistance = 1.5f;
+    
     [Header("Portal Settings")]
     [SerializeField] private PortalMarker _portalMarker;
-    [SerializeField] private GameObject _portalPrefab;
-
-    [Header("Control")] 
-    [SerializeField] private GameObject _joystickGroup;
-    [SerializeField] private FixedJoystick _fixedJoystick;
-    [SerializeField] private ButtonControlView _climbButton;
+    [SerializeField] private PortalSystem _portalSystem;
 
     private Camera _mainCamera;
     private State _currentState;
@@ -49,7 +48,7 @@ public class PlayerHandling : MonoBehaviour
     private ControlMode _currentControlMode;
     
     private bool _isPortalThrowAvailable;
-    private GameObject _portal;
+    private Portal _portal;
     
     private const KeyCode CHANGE_CONTROL_KEY = KeyCode.P;
     private const KeyCode APP_QUIT_KEY = KeyCode.Q;
@@ -62,8 +61,7 @@ public class PlayerHandling : MonoBehaviour
         ControlMode.Navmesh
     };
 
-    private const float DELTA_CLIMBED_POS = 1f; 
-    private const float CHECK_WALL_DIST = 2.0f; 
+    private const float DELTA_CLIMBED_POS = 1f;
 
     private void Awake()
     {
@@ -128,8 +126,8 @@ public class PlayerHandling : MonoBehaviour
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                        _normalMovementVector, CHECK_WALL_DIST) 
-                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
+                        _normalMovementVector, _checkWallDistance) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector, _checkWallDistance))
                 {
                     _wallDirection = _normalMovementVector;
                     _currentState = State.Climbing;
@@ -146,7 +144,7 @@ public class PlayerHandling : MonoBehaviour
                 _rigidbody.velocity = Vector3.up * _movementSpeed;
             
                 if (!Physics.Raycast(_playerBottom.position, 
-                    _wallDirection, CHECK_WALL_DIST))
+                    _wallDirection, _checkWallDistance))
                 {
                     _currentState = State.ClimbingMoving;
                     _climbedPosition = transform.position;
@@ -175,8 +173,8 @@ public class PlayerHandling : MonoBehaviour
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                        _normalMovementVector, CHECK_WALL_DIST) 
-                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
+                        _normalMovementVector, _checkWallDistance) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector, _checkWallDistance))
                 {
                     _wallDirection = _normalMovementVector;
                     _currentState = State.Climbing;
@@ -188,16 +186,6 @@ public class PlayerHandling : MonoBehaviour
 
     private Vector3 GetNormalMovementVector()
     {
-        //джойстик
-        if (Mathf.Abs(_fixedJoystick.Horizontal) > 0.01 || Mathf.Abs(_fixedJoystick.Vertical) > 0.01)
-        {
-            return new Vector3(
-                    _fixedJoystick.Horizontal, 
-                    0, 
-                    _fixedJoystick.Vertical)
-                .normalized;
-        }
-
         return new Vector3(
             Input.GetAxis("Horizontal"),
             0,
@@ -218,7 +206,7 @@ public class PlayerHandling : MonoBehaviour
                 
                 if (_currentControlMode == ControlMode.WasdSpace)
                 {
-                    if (Input.GetKeyDown(KeyCode.Space) || _climbButton.IsPressed)
+                    if (Input.GetKeyDown(KeyCode.Space))
                     {
                         _climbIsPressed = true;
                     }
@@ -261,18 +249,12 @@ public class PlayerHandling : MonoBehaviour
         {
             _navMeshAgent.enabled = true;
             _capsuleCollider.enabled = false;
-            
-            _joystickGroup.SetActive(false);
         }
         else
         {
             transform.rotation = Quaternion.identity;
             _navMeshAgent.enabled = false;
             _capsuleCollider.enabled = true;
-            
-            _joystickGroup.SetActive(true);
-            
-            _climbButton.gameObject.SetActive(_currentControlMode == ControlMode.WasdSpace);
         }
     }
 
@@ -313,11 +295,10 @@ public class PlayerHandling : MonoBehaviour
         {
             if (_portal != null)
             {
-                Destroy(_portal.gameObject);
+                _portalSystem.RemovePortal(_portal);
             }
 
-            _portal = Instantiate(_portalPrefab);
-            _portal.transform.position = _portalMarker.transform.position;
+            _portal = _portalSystem.SetPortal(_portalMarker.transform.position);
             SwitchPortalThrowing(false);
         }
     }
