@@ -31,11 +31,6 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private PortalMarker _portalMarker;
     [SerializeField] private GameObject _portalPrefab;
 
-    [Header("Control")] 
-    [SerializeField] private GameObject _joystickGroup;
-    [SerializeField] private FixedJoystick _fixedJoystick;
-    [SerializeField] private ButtonControlView _climbButton;
-
     private Camera _mainCamera;
     private State _currentState;
     private Vector3 _normalMovementVector;
@@ -188,16 +183,6 @@ public class PlayerHandling : MonoBehaviour
 
     private Vector3 GetNormalMovementVector()
     {
-        //джойстик
-        if (Mathf.Abs(_fixedJoystick.Horizontal) > 0.01 || Mathf.Abs(_fixedJoystick.Vertical) > 0.01)
-        {
-            return new Vector3(
-                    _fixedJoystick.Horizontal, 
-                    0, 
-                    _fixedJoystick.Vertical)
-                .normalized;
-        }
-
         return new Vector3(
             Input.GetAxis("Horizontal"),
             0,
@@ -218,7 +203,7 @@ public class PlayerHandling : MonoBehaviour
                 
                 if (_currentControlMode == ControlMode.WasdSpace)
                 {
-                    if (Input.GetKeyDown(KeyCode.Space) || _climbButton.IsPressed)
+                    if (Input.GetKeyDown(KeyCode.Space))
                     {
                         _climbIsPressed = true;
                     }
@@ -261,18 +246,12 @@ public class PlayerHandling : MonoBehaviour
         {
             _navMeshAgent.enabled = true;
             _capsuleCollider.enabled = false;
-            
-            _joystickGroup.SetActive(false);
         }
         else
         {
             transform.rotation = Quaternion.identity;
             _navMeshAgent.enabled = false;
             _capsuleCollider.enabled = true;
-            
-            _joystickGroup.SetActive(true);
-            
-            _climbButton.gameObject.SetActive(_currentControlMode == ControlMode.WasdSpace);
         }
     }
 
