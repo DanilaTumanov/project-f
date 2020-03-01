@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Camera;
 using Portals;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,10 +31,9 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private Transform _playerBottom;
     [SerializeField] private float _checkWallDistance = 1.5f;
     
-
     [Header("Portal Settings")]
     [SerializeField] private PortalMarker _portalMarker;
-    [SerializeField] private GameObject _portalPrefab;
+    [SerializeField] private PortalSystem _portalSystem;
 
     private Camera _mainCamera;
     private State _currentState;
@@ -48,7 +48,7 @@ public class PlayerHandling : MonoBehaviour
     private ControlMode _currentControlMode;
     
     private bool _isPortalThrowAvailable;
-    private GameObject _portal;
+    private Portal _portal;
     
     private const KeyCode CHANGE_CONTROL_KEY = KeyCode.P;
     private const KeyCode APP_QUIT_KEY = KeyCode.Q;
@@ -295,11 +295,10 @@ public class PlayerHandling : MonoBehaviour
         {
             if (_portal != null)
             {
-                Destroy(_portal.gameObject);
+                _portalSystem.RemovePortal(_portal);
             }
 
-            _portal = Instantiate(_portalPrefab);
-            _portal.transform.position = _portalMarker.transform.position;
+            _portal = _portalSystem.SetPortal(_portalMarker.transform.position);
             SwitchPortalThrowing(false);
         }
     }
