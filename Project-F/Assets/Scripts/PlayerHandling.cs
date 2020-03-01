@@ -23,9 +23,13 @@ public class PlayerHandling : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private CapsuleCollider _capsuleCollider;
+    [SerializeField] private float _movementSpeed = 10f;
+    
+    [Header("Climb Settings")]
     [SerializeField] private Transform _playerTop;
     [SerializeField] private Transform _playerBottom;
-    [SerializeField] private float _movementSpeed = 10f;
+    [SerializeField] private float _checkWallDistance = 1.5f;
+    
 
     [Header("Portal Settings")]
     [SerializeField] private PortalMarker _portalMarker;
@@ -57,8 +61,7 @@ public class PlayerHandling : MonoBehaviour
         ControlMode.Navmesh
     };
 
-    private const float DELTA_CLIMBED_POS = 1f; 
-    private const float CHECK_WALL_DIST = 2.0f; 
+    private const float DELTA_CLIMBED_POS = 1f;
 
     private void Awake()
     {
@@ -123,8 +126,8 @@ public class PlayerHandling : MonoBehaviour
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                        _normalMovementVector, CHECK_WALL_DIST) 
-                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
+                        _normalMovementVector, _checkWallDistance) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector, _checkWallDistance))
                 {
                     _wallDirection = _normalMovementVector;
                     _currentState = State.Climbing;
@@ -141,7 +144,7 @@ public class PlayerHandling : MonoBehaviour
                 _rigidbody.velocity = Vector3.up * _movementSpeed;
             
                 if (!Physics.Raycast(_playerBottom.position, 
-                    _wallDirection, CHECK_WALL_DIST))
+                    _wallDirection, _checkWallDistance))
                 {
                     _currentState = State.ClimbingMoving;
                     _climbedPosition = transform.position;
@@ -170,8 +173,8 @@ public class PlayerHandling : MonoBehaviour
             {
                 //чекаем стену спереди
                 if (Physics.Raycast(transform.position, 
-                        _normalMovementVector, CHECK_WALL_DIST) 
-                    && !Physics.Raycast(_playerTop.position, _normalMovementVector,CHECK_WALL_DIST))
+                        _normalMovementVector, _checkWallDistance) 
+                    && !Physics.Raycast(_playerTop.position, _normalMovementVector, _checkWallDistance))
                 {
                     _wallDirection = _normalMovementVector;
                     _currentState = State.Climbing;
